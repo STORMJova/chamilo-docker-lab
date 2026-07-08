@@ -1,0 +1,40 @@
+# Usiamo l'immagine ufficiale di PHP con Apache preconfigurato
+FROM php:8.2-apache
+
+# Aggiorniamo i pacchetti e installiamo le dipendenze di sistema e le estensioni PHP necessarie a Chamilo
+RUN apt-get update && apt-get install -y \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    libzip-dev \
+    libicu-dev \
+    libxml2-dev \
+    unzip \
+    git \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install -j$(nproc) gd mysqli pdo_mysql zip intl opcache bcmath soap \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Configurazione ottimizzata di PHP per Chamilo LMS
+RUN { \
+        echo 'max_execution_time = 300'; \
+        echo 'memory_limit = 256M'; \
+        echo 'upload_max_filesize = 100M'; \
+        echo 'post_max_size = 100M'; \
+        echo 'date.timezone = Europe/Rome'; \
+    } > /usr/local/etc/php/conf.d/chamilo-optimizations.ini
+
+# Abilitiamo il modulo rewrite di Apache (fondamentale per le rotte dell'LMS)
+RUN a2enmod rewrite
+
+# Svuotiamo la cartella di default e cloniamo Chamilo dalla repo GitHub ufficiale
+# Usiamo --depth=1 per scaricare solo l'ultimo commit e sveltire enormemente il build
+RUN rm -rf /var/www/html/* \
+    && git clone --depth=1 https://github.com/chamilo/chamilo-lms.git /var/www/html/
+
+# Configuriamo i permessi corretti per l'utente Apache (www-data)
+RUN chown -R www-data:www-data /var/www/html/ \
+    && chmod -R 755 /var/www/html/
+
+# Esponiamo la porta 80 del container
+EXPOSE 80
