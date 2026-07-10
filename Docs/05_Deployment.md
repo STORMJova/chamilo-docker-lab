@@ -32,6 +32,7 @@ services:
 volumes:
   db_data:
 ```
+Quindi lanciare il comando:
 
 ```bash
     docker compose up -d
