@@ -10,15 +10,18 @@ L'obiettivo di questo progetto è la creazione di un'immagine Docker personalizz
 
 ## 🎯 Task del Progetto
 - [x] Scelta del software (Chamilo LMS).
-- [ ] Creazione del `Dockerfile` customizzato.
-- [ ] Creazione del `docker-compose.yml` per l'orchestrazione con il Database.
-- [ ] Test di funzionamento dell'ambiente.
+- [x] Creazione del `Dockerfile` customizzato.
+- [x] Creazione del `docker-compose.yml` per l'orchestrazione con il Database.
+- [x] Test di funzionamento dell'ambiente.
 - [ ] Pubblicazione dell'immagine ufficiale su **Docker Hub**.
 
 ## 🛠️ Architettura e Stack
 * **Applicativo:** [Chamilo LMS](https://github.com/chamilo/chamilo-lms)
-* **Base Image Docker:** `php:8.1-apache`
+* **Base Image Docker:** `php:7.4-apache`
 * **Database:** `mariadb:10.11`
 
----
-*Istruzioni dettagliate per il deploy e i link a Docker Hub verranno inseriti nei prossimi commit non appena l'immagine sarà finalizzata.*
+## 📚 Documentazione Tecnica
+
+Tutti i dettagli sull'architettura, le scelte implementative e i protocolli di sicurezza adottati in questo progetto universitario sono consultabili nella cartella dedicata.
+
+👉 **[Esplora la cartella della Documentazione](./Docs)**

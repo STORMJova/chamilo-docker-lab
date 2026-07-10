@@ -1,0 +1,33 @@
+## 🚀 Guida al Deploy
+
+L'immagine ufficiale di questo progetto è stata pubblicata su **Docker Hub**. Non è necessaria alcuna compilazione locale dei file sorgenti.
+
+Per avviare l'ambiente completo "out-of-the-box", è sufficiente creare un file `docker-compose.yml` sul proprio PC con il seguente contenuto:
+
+```yaml
+version: '3.8'
+
+services:
+  chamilo-app:
+    image: jovaxxiii/chamilo-cloud-lab:latest
+    container_name: chamilo_web_app
+    ports:
+      - "8080:80"
+    depends_on:
+      - chamilo-db
+    restart: always
+
+  chamilo-db:
+    image: mariadb:10.11
+    container_name: chamilo_database
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: chamilo_db
+      MYSQL_USER: chamilo_user
+      MYSQL_PASSWORD: chamilo_pass
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
