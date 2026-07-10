@@ -31,6 +31,7 @@ services:
 
 volumes:
   db_data:
+```
 
 ```bash
     docker compose up -d
