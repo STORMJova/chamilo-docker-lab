@@ -13,7 +13,7 @@ L'obiettivo di questo progetto è la creazione di un'immagine Docker personalizz
 - [x] Creazione del `Dockerfile` customizzato.
 - [x] Creazione del `docker-compose.yml` per l'orchestrazione con il Database.
 - [x] Test di funzionamento dell'ambiente.
-- [ ] Pubblicazione dell'immagine ufficiale su **Docker Hub**.
+- [x] Pubblicazione dell'immagine ufficiale su **Docker Hub**.
 
 ## 🛠️ Architettura e Stack
 * **Applicativo:** [Chamilo LMS](https://github.com/chamilo/chamilo-lms)
