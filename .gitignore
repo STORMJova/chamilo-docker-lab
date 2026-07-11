@@ -1,0 +1,16 @@
+# IDEs ed Editor di testo
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# File di sistema macOS e Windows
+.DS_Store
+Thumbs.db
+
+# File di log generici
+*.log
+
+# Variabili d'ambiente
+.env
+.env.*
