@@ -14,3 +14,7 @@ Thumbs.db
 # Variabili d'ambiente
 .env
 .env.*
+!.env.example
+
+# Volumi Docker (Dati persistenti)
+db_data/

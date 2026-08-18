@@ -45,5 +45,12 @@ RUN git config --global --add safe.directory /var/www/html \
 RUN chown -R www-data:www-data /var/www/html/ \
     && chmod -R 755 /var/www/html/
 
+# Copia il file di configurazione pre-compilato
+COPY configuration.php /var/www/html/app/config/configuration.php
+
+# Applica le regole di sicurezza richieste da Chamilo
+RUN chmod 0755 /var/www/html/app/config && \
+    rm -rf /var/www/html/main/install/
+
 # Esponiamo la porta 80
 EXPOSE 80
