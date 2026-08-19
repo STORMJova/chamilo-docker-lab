@@ -9,7 +9,7 @@ version: '3.8'
 
 services:
   chamilo-app:
-    build: .
+    image: jovaxxiii/chamilo-cloud-lab:latest
     container_name: chamilo_web_app
     ports:
       - "8080:80"
@@ -24,10 +24,10 @@ services:
     container_name: chamilo_database
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: chamilo_db
+      MYSQL_USER: chamilo_user
+      MYSQL_PASSWORD: chamilo_pass
     volumes:
       - db_data:/var/lib/mysql
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
@@ -38,5 +38,5 @@ volumes:
 Quindi lanciare il comando:
 
 ```bash
-    docker compose up -d
+    docker compose up -d --build
 ```
