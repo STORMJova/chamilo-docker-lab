@@ -1,5 +1,7 @@
 ## 1. Obiettivo del Progetto e Scelta del Software
 
-L'obiettivo del progetto è la containerizzazione di una piattaforma web complessa con annesso database, per garantire un deploy "out-of-the-box" tramite Docker e Docker Compose.
+L'obiettivo del progetto è la containerizzazione di una piattaforma web complessa in conformità con i requisiti specificati per l'esame[cite: 1]. La consegna prevede la creazione di un'immagine Docker personalizzata a partire da un'immagine di base, l'esecuzione dei test di funzionamento e la successiva pubblicazione su Docker Hub. L'infrastruttura risultante deve garantire un deploy totalmente "out-of-the-box", integrando le risorse esterne necessarie (nello specifico, un database relazionale) tramite un file di orchestrazione Docker Compose.
 
-Il software selezionato è **Chamilo LMS** (v1.11.x stabile). A differenza di altre opzioni (come ZWS, che usa un'architettura a microservizi divisa tra API, Web e Migrator), Chamilo adotta un'architettura monolitica classica (LAMP). Questo permette di racchiudere tutta la logica applicativa in un singolo `Dockerfile` altamente ottimizzato, affiancandogli un container separato per il database relazionale (MariaDB). È il caso d'uso perfetto per dimostrare l'efficacia dell'orchestrazione cloud.
+Il software selezionato per lo sviluppo è **Chamilo LMS** (v1.11.x stabile)[cite: 1]. A differenza di altre opzioni proposte (come ZWS, che adotta un'architettura a microservizi divisa tra API, Web e Migrator), Chamilo sfrutta un'architettura monolitica classica (LAMP). Questa scelta strategica permette di racchiudere l'intera logica applicativa all'interno di un singolo `Dockerfile` altamente ottimizzato, riducendo l'overhead computazionale. 
+
+Affiancando all'applicativo un container separato e dedicato al database relazionale (MariaDB), questo progetto rappresenta il caso d'uso perfetto per dimostrare l'efficacia, la modularità e la gestione delle dipendenze in un'orchestrazione cloud.
