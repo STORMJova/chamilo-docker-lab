@@ -1,6 +1,6 @@
 # 05. Guida al Deploy Finale
 
-Come espressamente richiesto dalla consegna, l'immagine finale è stata compilata, taggata e pubblicata nel registro pubblico di Docker Hub. Questo consente al docente di testare l'infrastruttura completa "out-of-the-box" eseguendo un singolo comando, senza la necessità di possedere i file sorgenti del codice o rieseguire lunghe fasi di build locali[cite: 1].
+Come espressamente richiesto dalla consegna, l'immagine finale è stata compilata, taggata e pubblicata nel registro pubblico di Docker Hub. Questo consente al docente di testare l'infrastruttura completa "out-of-the-box" eseguendo un singolo comando, senza la necessità di possedere i file sorgenti del codice o rieseguire lunghe fasi di build locali.
 
 ## 1. Prerequisiti
 Per avviare l'ambiente completo, è sufficiente posizionare all'interno di una singola cartella i seguenti due file (forniti in sede di consegna):
@@ -8,7 +8,7 @@ Per avviare l'ambiente completo, è sufficiente posizionare all'interno di una s
 * Il file `init.sql` (indispensabile per il bootstrap automatico del database)
 
 ## 2. File di Orchestrazione
-Il file `docker-compose.yml` finale che il docente dovrà utilizzare per il pull immediato è strutturato come segue (l'istruzione di compilazione locale viene sostituita dall'immagine remota distribuita su Docker Hub)[cite: 1]:
+Il file `docker-compose.yml` finale che il docente dovrà utilizzare per il pull immediato è strutturato come segue (l'istruzione di compilazione locale viene sostituita dall'immagine remota distribuita su Docker Hub):
 
 ```yaml
 version: '3.8'
